@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Crush Pictures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh; 
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            padding: 20px; 
+            box-sizing: border-box; 
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: #ff4081;
+            margin-bottom: 20px;
+            text-align: center; 
+        }
+
+        .image-gallery {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted minimum size */
+            gap: 20px;
+            justify-items: center; 
+            width: 100%; 
+        }
+
+        .image-gallery img {
+            width: 200px; /* Fixed width */
+            height: 200px; /* Fixed height */
+            object-fit: cover; /* Ensures images cover the area */
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer; /* Show pointer on hover */
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background: #ff4081;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .back-button:hover {
+            background: #e91e63;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+            justify-content: center; 
+            align-items: center; 
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 15px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Here are some pictures of my crush! 💖</h1>
+    <div class="image-gallery">
+        <img src="/img/charm1.jpg" alt="Crush Image 1" onclick="openModal(this.src)">
+        <img src="/img/charm2.jpg" alt="Crush Image 2" onclick="openModal(this.src)">
+        <img src="/img/charm3.jpg" alt="Crush Image 3" onclick="openModal(this.src)">
+        <img src="/img/charm4.JPG" alt="Crush Image 3" onclick="openModal(this.src)">
+        <!-- Add more images as needed -->
+    </div>
+    
+    <button class="back-button" onclick="window.history.back()">Go Back</button>
+
+    <!-- Modal for viewing images -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <!-- Audio for the yes button -->
+    <audio id="song" src="/song/birds-of-a-feather-official-music-video.mp3"></audio>
+
+    <script>
+        // Play the song when the page loads
+        window.onload = function() {
+            const song = document.getElementById('song');
+            song.play().catch(error => {
+                console.log("Audio playback failed: ", error);
+            });
+        };
+
+        // Open modal and display clicked image
+        function openModal(src) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("img01");
+            modal.style.display = "flex";
+            modalImg.src = src;
+        }
+
+        // Close modal
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>

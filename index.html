@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes or No Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
+        }
+
+        h1 {
+            color: #ff4081;
+            margin-bottom: 20px;
+        }
+
+        .image {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s;
+            color: white;
+            background-color: #ff4081;
+        }
+
+        .btn.no {
+            background-color: #f44336; /* Red for No button */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>hey, do you want to see my Crush?</h1>
+        <img id="image" src="/img/462199604_2367780263581860_6262666616271196064_n.jpg" alt="Image" class="image">
+        
+        <div class="buttons">
+            <button id="yesBtn" class="btn yes">Yes</button>
+            <button id="noBtn" class="btn no">No</button>
+        </div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+
+        // Handle "Yes" button click: Navigate to pictures.html
+        yesBtn.addEventListener('click', () => {
+            // Redirect to the pictures page
+            window.location.href = 'pictures.html';
+        });
+
+        // Handle "No" button hover: Make it move around
+        noBtn.addEventListener('mouseenter', () => {
+            const randomX = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const randomY = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = `${randomX}px`;
+            noBtn.style.top = `${randomY}px`;
+        });
+    </script>
+</body>
+</html>

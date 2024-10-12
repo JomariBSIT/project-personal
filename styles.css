@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #ff4081;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    transition: transform 0.5s ease;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.btn.yes {
+    background-color: #4caf50;
+    color: white;
+}
+
+.btn.no {
+    background-color: #f44336;
+    color: white;
+    position: relative;
+}
+
+.btn.yes:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+}
+
+.btn.no:hover {
+    background-color: #e57373;
+}
+
+/* Naughty No Button Movement */
+#noBtn.move {
+    position: absolute;
+    transition: all 0.2s ease;
+}
+
+/* Image Animation for "Yes" */
+@keyframes nextImage {
+    from {
+        transform: scale(1) rotate(0deg);
+    }
+    to {
+        transform: scale(1.1) rotate(360deg);
+    }
+}
+
